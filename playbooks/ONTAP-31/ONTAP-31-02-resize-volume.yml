@@ -1,0 +1,39 @@
+################################################################################
+#
+# Title:        ONTAP-41-02 - Volumes (NFS Resize)
+# Author:       Paul Davis
+# Description:  NFS
+#               - Resize Volumes for RTX Demo
+#
+################################################################################
+
+- hosts: "primary_storage_clusters"
+  name: "ONTAP-341-02 - Volumes (NFS Resize)"
+  gather_facts: false
+  vars_files:
+    - ../../vars/{{ inventory_dir | split('/') | last }}/vars.yml
+    - ../../vars/{{ inventory_dir | split('/') | last }}/vault.yml
+  collections:
+    - netapp.ontap
+  module_defaults:
+    group/netapp.ontap.netapp_ontap:
+      hostname: "{{ ansible_host }}"
+      username: "{{ ontap_admin_user }}"
+      password: "{{ ontap_admin_password }}"
+      https: true
+      validate_certs: false
+      use_rest: "always"
+
+  tasks:
+    - name: Resize NFS volume ontap_41_nfs_vol01 to 12GB
+      netapp.ontap.na_ontap_volume:
+        state: present
+        name: "ontap_41_nfs_vol01"
+        aggregate_name: "{{ storage_aggregates[0].name }}"
+        size: 12
+        size_unit: gb
+        space_guarantee: none
+        tiering_policy: auto
+        junction_path: "/ontap_41_nfs_vol01"
+        vserver: "{{ global_primary_nas_svm }}"
+        volume_security_style: "unix"
