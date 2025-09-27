@@ -45,6 +45,20 @@ For NetApp internal, partner, and customer use - ready to go in less than 15 min
 
    
    ```
+# Quick LoD demo for NFS
+(Note: Only tested on 9.16.1)
+
+- Make shell scripts executable:
+  ```
+  chmod +x auto-*.sh
+
+  ```
+- to run demo:
+  ```
+  ./auto-demo.sh # runs demo
+  ./auto-rest.sh # resets demo
+
+  ```
 
 
 # Further Execution Examples
