@@ -59,7 +59,13 @@ For NetApp internal, partner, and customer use - ready to go in less than 15 min
   ./auto-rest.sh # resets demo
 
   ```
+- resize NFS volume:
+  ```
+  volume show -vserver ntap-svm01-nas # in CLI
+  ansible-playbook -i ./inventories/labondemand_latest ./playbooks/ONTAP-31/ONTAP-31-02-resize-volume.yml # RHEL
+  volume show -vserver ntap-svm01-nas # in CLI
 
+  ```
 
 # Further Execution Examples
 (keep in mind: based on ONTAP (lab) version: ./inventories/labondemand_< ontapversion >)
