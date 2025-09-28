@@ -23,7 +23,7 @@ For NetApp internal, partner, and customer use - ready to go in less than 15 min
 2. Log into the Linux host (e.g. "centos1" or "RHEL1") and clone this repository:
    ```
    yum install -y git
-   git clone https://github.com/AdrianBronder/NetApp-ONTAP-Testplan.git
+   git clone https://github.com/pdavis39/NetApp-ONTAP-Testplan.git
 
    
    ```
