@@ -10,6 +10,7 @@
 # Introduction
 This repository contains Ansible artifacts (inventories, vars, playbooks...) for executing tests and demos against ONTAP automatically.
 They can be used out of the box in Lab on Demand or - by adjusting variables - in any other environment.
+This is a fork from AdrianBronder's version and his work is much appreciated.
 
 > [!CAUTION]
 > Please consider the content of this repository for lab testing and demo purposes only!
